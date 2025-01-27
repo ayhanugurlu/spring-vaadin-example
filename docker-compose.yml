@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  todo-backend:
+    image: todo-backend:0.0.1
+    ports:
+      - "8081:8081"
+  vaadin-frontend:
+    image: vaadin-frontend:0.0.1
+    environment:
+      - BACKEND_URL=http://todo-backend:8081
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
